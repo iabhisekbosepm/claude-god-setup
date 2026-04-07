@@ -16,11 +16,15 @@
     "langfuse",
     "evaluation"
   ],
-  "author": "",
+  "author": "iabhisekbosepm",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/iabhisekbosepm/claude-god-setup.git"
+  },
+  "homepage": "https://github.com/iabhisekbosepm/claude-god-setup#readme",
+  "bugs": {
+    "url": "https://github.com/iabhisekbosepm/claude-god-setup/issues"
   },
   "files": [
     "bin/",

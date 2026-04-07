@@ -15,7 +15,7 @@ That's it. All 21 agents, 15 skills, 9 hooks, and 3 pattern rules are installed 
 ### Option B: Clone and Install
 
 ```bash
-git clone https://github.com/anthropics/claude-god-setup.git
+git clone https://github.com/iabhisekbosepm/claude-god-setup.git
 cd claude-god-setup && ./setup.sh
 ```
 
