@@ -12,6 +12,8 @@ npx claude-god-setup
 
 That's it. All 21 agents, 15 skills, 9 hooks, and 3 pattern rules are installed globally and work in every project.
 
+> **Note:** Use `npx`, not `npm install`. This package is a CLI installer that sets up `~/.claude/` — it's not a library dependency.
+
 ### Option B: Clone and Install
 
 ```bash
