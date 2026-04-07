@@ -1,0 +1,119 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/env-setup.sh",
+            "timeout": 30,
+            "statusMessage": "Loading God Setup..."
+          }
+        ]
+      }
+    ],
+
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "if": "Bash(git push *)",
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/git-push-guard.sh",
+            "timeout": 10,
+            "statusMessage": "Push safety check..."
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "if": "Bash(git commit *)",
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/pre-commit-check.sh",
+            "timeout": 15,
+            "statusMessage": "Pre-commit check..."
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "if": "Bash(rm -rf *)",
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/destructive-guard.sh",
+            "timeout": 5,
+            "statusMessage": "Destructive cmd check..."
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "if": "Bash(git reset --hard *)",
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/destructive-guard.sh",
+            "timeout": 5,
+            "statusMessage": "Destructive git check..."
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "if": "Bash(git push --force *)",
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/force-push-guard.sh",
+            "timeout": 5,
+            "statusMessage": "Force push block..."
+          }
+        ]
+      }
+    ],
+
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/post-edit-track.sh",
+            "timeout": 5,
+            "statusMessage": "Tracking changes..."
+          }
+        ]
+      }
+    ],
+
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/stop-checklist.sh",
+            "timeout": 10,
+            "statusMessage": "Completion checklist..."
+          }
+        ]
+      }
+    ],
+
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/notify.sh",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}

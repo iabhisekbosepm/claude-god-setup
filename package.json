@@ -1,0 +1,36 @@
+{
+  "name": "claude-god-setup",
+  "version": "1.0.0",
+  "description": "Multi-agent orchestration system for Claude Code — 21 agents, 15 skills, 9 hooks, auto-routing, and safety guards. One command to supercharge any project.",
+  "bin": {
+    "claude-god-setup": "./bin/install.js"
+  },
+  "keywords": [
+    "claude",
+    "claude-code",
+    "ai-agents",
+    "llm",
+    "code-review",
+    "multi-agent",
+    "vibe-coding",
+    "langfuse",
+    "evaluation"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "files": [
+    "bin/",
+    "agents/",
+    "patterns/",
+    "skills/",
+    ".claude/hooks/",
+    ".claude/skills/",
+    "setup.sh",
+    "CLAUDE.md",
+    "README.md"
+  ]
+}
